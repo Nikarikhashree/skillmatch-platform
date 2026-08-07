@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #101e33;
+  --color-ink-soft: #43566f;
+  --color-line: #d5dde8;
+  --color-mist: #e8edf4;
+  --color-paper: #f7f9fc;
+  --color-teal: #1f6f63;
+  --color-teal-soft: #d7e8e4;
+  --color-amber: #c9821a;
+  --color-amber-soft: #f6e8cf;
+  --color-rose: #a83a55;
+
+  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-paper);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-teal);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Small caps label used for every eyebrow and data label in the interface. */
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-ink-soft);
+}
