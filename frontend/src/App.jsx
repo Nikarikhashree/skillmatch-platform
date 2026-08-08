@@ -1,15 +1,19 @@
 import { Route, Routes } from 'react-router-dom';
 import Nav from './components/Nav.jsx';
+import PageMeta from './components/PageMeta.jsx';
 import Chatbot from './components/Chatbot.jsx';
 import LandingPage from './pages/LandingPage.jsx';
 import ProfessionalOnboarding from './pages/ProfessionalOnboarding.jsx';
 import CompanyPortal from './pages/CompanyPortal.jsx';
 import OpportunityBrowser from './pages/OpportunityBrowser.jsx';
 import Dashboard from './pages/Dashboard.jsx';
+import VolunteerSignup from './pages/VolunteerSignup.jsx';
+import SupportUs from './pages/SupportUs.jsx';
 
 export default function App() {
   return (
     <div className="min-h-screen">
+      <PageMeta />
       <Nav />
       <main>
         <Routes>
@@ -17,6 +21,8 @@ export default function App() {
           <Route path="/join" element={<ProfessionalOnboarding />} />
           <Route path="/post" element={<CompanyPortal />} />
           <Route path="/browse" element={<OpportunityBrowser />} />
+          <Route path="/volunteer" element={<VolunteerSignup />} />
+          <Route path="/support" element={<SupportUs />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="*" element={
             <div className="mx-auto max-w-6xl px-5 py-20">

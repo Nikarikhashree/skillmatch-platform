@@ -73,4 +73,30 @@ router.get('/beneficiaries', (req, res) => {
   res.json(db.prepare('SELECT * FROM beneficiaries ORDER BY created_at DESC').all());
 });
 
+/** Donor and sponsor enquiries. Stored for follow up, never charged or processed here. */
+router.post('/enquiries', (req, res) => {
+  const contact_name = String(req.body.contact_name || '').trim();
+  const email = String(req.body.email || '').trim().toLowerCase();
+  if (!contact_name || !email) return res.status(400).json({ error: 'Name and email are both needed' });
+  if (!email.includes('@')) return res.status(400).json({ error: 'That email address does not look right' });
+
+  const info = db.prepare(
+    `INSERT INTO sponsor_enquiries (contact_name, organisation, email, enquiry_type, tier, message)
+     VALUES (?, ?, ?, ?, ?, ?)`
+  ).run(
+    contact_name,
+    String(req.body.organisation || ''),
+    email,
+    String(req.body.enquiry_type || 'donation'),
+    String(req.body.tier || ''),
+    String(req.body.message || '')
+  );
+
+  res.status(201).json(db.prepare('SELECT * FROM sponsor_enquiries WHERE id = ?').get(info.lastInsertRowid));
+});
+
+router.get('/enquiries', (req, res) => {
+  res.json(db.prepare('SELECT * FROM sponsor_enquiries ORDER BY created_at DESC').all());
+});
+
 export default router;

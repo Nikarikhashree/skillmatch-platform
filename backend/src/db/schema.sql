@@ -118,6 +118,18 @@ CREATE TABLE IF NOT EXISTS impact_events (
   note           TEXT    NOT NULL DEFAULT ''
 );
 
+CREATE TABLE IF NOT EXISTS sponsor_enquiries (
+  id            INTEGER PRIMARY KEY AUTOINCREMENT,
+  contact_name  TEXT    NOT NULL,
+  organisation  TEXT    NOT NULL DEFAULT '',
+  email         TEXT    NOT NULL,
+  enquiry_type  TEXT    NOT NULL DEFAULT 'donation',
+  tier          TEXT    NOT NULL DEFAULT '',
+  message       TEXT    NOT NULL DEFAULT '',
+  status        TEXT    NOT NULL DEFAULT 'new',
+  created_at    TEXT    NOT NULL DEFAULT (datetime('now'))
+);
+
 CREATE INDEX IF NOT EXISTS idx_opps_status    ON opportunities(status);
 CREATE INDEX IF NOT EXISTS idx_matches_score  ON matches(score DESC);
 CREATE INDEX IF NOT EXISTS idx_impact_type    ON impact_events(event_type);

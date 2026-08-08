@@ -41,6 +41,8 @@ export const api = {
 
   analytics: () => request('/analytics'),
   addVolunteer: (data) => post('/analytics/volunteers', data),
+  listVolunteers: () => request('/analytics/volunteers'),
+  addEnquiry: (data) => post('/analytics/enquiries', data),
   addBeneficiary: (data) => post('/analytics/beneficiaries', data),
 
   chat: (message, history) => post('/chatbot', { message, history })

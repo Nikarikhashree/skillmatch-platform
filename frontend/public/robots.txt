@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://skillmatch-platform-kappa.vercel.app/sitemap.xml

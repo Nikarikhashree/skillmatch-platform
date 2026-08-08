@@ -4,6 +4,8 @@ const LINKS = [
   ['/browse', 'Browse projects'],
   ['/join', 'Join as a professional'],
   ['/post', 'Post a project'],
+  ['/volunteer', 'Volunteer'],
+  ['/support', 'Support us'],
   ['/dashboard', 'Impact dashboard']
 ];
 
