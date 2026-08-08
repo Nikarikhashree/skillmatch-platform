@@ -8,7 +8,8 @@
     "start": "node src/server.js",
     "dev": "node --watch src/server.js",
     "seed": "node src/db/seed.js",
-    "reindex": "node src/scripts/reindex.js"
+    "reindex": "node src/scripts/reindex.js",
+    "test": "node --test src/**/*.test.js"
   },
   "engines": { "node": ">=20" },
   "dependencies": {

@@ -50,7 +50,7 @@ async function vectorForOpportunity(opportunity) {
 
 const normaliseSkill = (name) => String(name || '').toLowerCase().trim();
 
-function skillFit(professional, opportunity) {
+export function skillFit(professional, opportunity) {
   const held = new Map(
     (professional.skills || []).map((s) => [normaliseSkill(s.name), s.proficiency || 3])
   );
@@ -84,7 +84,7 @@ function skillFit(professional, opportunity) {
   return { score: total ? earned / total : 0, matched, missing };
 }
 
-function logisticsFit(professional, opportunity) {
+export function logisticsFit(professional, opportunity) {
   const notes = [];
   let score = 1;
 
